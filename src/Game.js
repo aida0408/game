@@ -1,12 +1,12 @@
-import {useState,useEffect} from "react";
+import {useState} from "react";
 
 
 const Game = () => {
-    const [random, setRandom] = useState(Math.round(Math.random() * 10))
+    const [random] = useState(Math.round(Math.random() * 10))
     const [guess, setGuess] = useState("")
     const [message, setMessage] = useState("")
     const [freeAttempts, setFreeAttempts] = useState(3)
-    const [off, setOff] = useState("")
+
 
     const add = (e) =>{
         setGuess(e.target.value)
@@ -32,7 +32,6 @@ const Game = () => {
             <input type="radio" id='mode' name='mode' defaultChecked={true} />
             <label htmlFor="mode">off</label>
             <input type="radio" id='mode' name='mode' />
-
             {
                 Boolean(freeAttempts) &&
                 <div>У вас осталось {freeAttempts} {freeAttempts === 1? 'попытка' : 'попытки'}</div>
